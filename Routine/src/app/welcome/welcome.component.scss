@@ -1,0 +1,28 @@
+@import '../main-styles.scss' ;
+
+.logo{
+    display:flex;
+    margin: auto;
+    justify-content: center;
+    max-width: 500px;
+    margin-top: 300px;
+}
+
+.buttons{
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.button{
+    font-family: 'Nunito';
+    font-weight: bold;
+    color: $turquoise;
+    transform: scale(0.8);
+
+    &:hover{
+        background: $turquoise;
+        color: $light;
+        transition: opacity 0.5s, transform 0.2s;
+        transform: scale(1);
+    }
+}

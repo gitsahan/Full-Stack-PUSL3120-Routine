@@ -1,0 +1,17 @@
+<div class="centered-content">
+    <div class="model-box">
+        <h1 class="title">
+            Create A New Schedule </h1>   
+            <div class="field is-grouped">
+                <p class="control is-expanded">
+                  <input #ScheduleTitleInput class="input is-medium" type="text" placeholder="Create a new Schedule">
+                </p>
+                <p class="control1">
+                  <a class="button is-info is-medium" (click)="createSchedule(ScheduleTitleInput.value)">
+                    Create
+                  </a>
+                </p>
+            </div>
+            <button class="button2" style="margin-top: 20;"><font color="#000000" routerLink="/lists">Cancel</font></button>
+    </div>
+</div>

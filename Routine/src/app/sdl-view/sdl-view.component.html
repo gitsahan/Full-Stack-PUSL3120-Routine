@@ -1,0 +1,72 @@
+<div class= "centered-content">
+    <div class = "schedule-manager-container">
+        <div class= "sidebar has-background-white">
+            <h1 class="title has-text-primary">
+                Lists
+            </h1>
+        
+
+            <div class="list-menu">
+                <a class="list-menu-item" *ngFor = "let list of lists" [routerLink]= "['/lists', list._id]" routerLinkActive="is-active">
+                    <p class=>{{list.title}}</p>
+                </a>
+            </div>
+            <button class="button is-primary has-text-white margin-below" routerLink="/new-list">+ Create List      
+            </button>
+        </div>
+
+        <div class= "schedule-list-container has-background-light">
+            <div class="top-bar">
+            <h1 class= "title has-text-primary">
+                Schedules
+            </h1>
+            <div class="dropdown is-hoverable is-right">
+                <div class="dropdown-trigger">
+                  <button class="button" aria-haspopup="true">
+                    <span class="icon is-small">
+                      <i class="fas fa-cog" aria-hidden="true"></i>
+                    </span>
+                  </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                    <div class="dropdown-content">
+                      <a [routerLink]="['/update-list', selectedListId]" class="dropdown-item">
+                        Edit List
+                      </a>
+                      <a (click)="onDeleteListClick()" class="dropdown-item">
+                        Delete List
+                      </a>
+                      <hr class="dropdown-divider">
+                      <a href="/log-in" class="dropdown-item">
+                        <font color="red"><b>Log-Out</b></font>
+                      </a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="schedule" *ngFor = "let schedule of schedules" (click)="onScheduleClick(schedule)" [ngClass]="{'completed': schedule.completed}">
+              <div class="schedule-text">
+                <p>{{schedule.title}}</p>
+              </div>
+              <div class="schedule-buttons">
+                
+                <button class="button" [routerLink]="['/lists', selectedListId, 'update-sdl', schedule._id]">
+                  <div class="icon">
+                    <i class="fas fa-edit"></i>
+                  </div>
+                </button>
+                <button class="button is-danger" style="margin-left: 15px" (click)="onScheduleDelete(schedule._id)">
+                  <div class="icon">
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+            <button class="circle-add-button button" routerLink="./new-sdl">
+                <img src="../../assets/plus.png"> 
+            </button>
+            <div *ngIf="!schedules">
+                <h2 class="empty-state-text"> <font color="#00034d"> Select a list from the sidebar to view schedules . . . </font> </h2>
+        </div>
+    </div>
+</div>
